@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Flask Basics{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     {% block content %}{% endblock %}
@@ -11,5 +12,6 @@
     and class. In Death: The Time of Your Life, Gaiman deconstructs
     precapitalist dialectic theory; in Black Orchid, although, he affirms
     neoconstructive narrative.</p>
+    {% block scripts %}{% endblock %}
 </body>
 </html>
