@@ -7,10 +7,11 @@ app = Flask(__name__)
 def index(name='Test User'):
     return 'Hello, {}'.format(name)
 
-# use of converter to change type to int
 @app.route('/add/<int:num1>/<int:num2>')
+@app.route('/add/<int:num1>/<float:num2>')
+@app.route('/add/<float:num1>/<int:num2>')
+@app.route('/add/<float:num1>/<float:num2>')
 def add(num1, num2):
-    # NOTE: expects a return value of type str
     return '{} + {} = {}'.format(num1, num2, num1 + num2)
 
 app.run(debug=True, port=8000, host='0.0.0.0')
