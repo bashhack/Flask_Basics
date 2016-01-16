@@ -5,12 +5,12 @@ Main entrypoint for my 'build a bear' web application
 import json
 
 from flask import (Flask, render_template, url_for, redirect,
-                   request, make_response)
+                   request, make_response, flash)
 
 from options import DEFAULTS
 
 app = Flask(__name__)
-
+app.secret_key = 'sonwkng@%@&2dn<ghdfgh#sdfg)9sd8fgh3@$@%$5dk>kh;fhkj;gf!gsdl'
 
 # This should work, but beware if this returns xyz...I get a 404, should
 # fix later...
@@ -45,6 +45,7 @@ def builder():
 def save():
     ''' Handles save method (to cookies), and redirect post-save to
     builder route '''
+    flash('Alright! That looks awesome! Your changes have been saved.')
     response = make_response(redirect(url_for('builder')))
     data = get_saved_data()
     data.update(dict(request.form.items()))
